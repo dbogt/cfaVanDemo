@@ -35,7 +35,11 @@ df = pd.read_csv(pick + ".csv", parse_dates=['Date'])
 st.write(df)
     #st.write --> like print in python
 
-fig = px.line(df, x='Date', y='Close')
+dayStart = '{:%Y-%m-%d}'.format(startDate)
+dayEnd = '{:%Y-%m-%d}'.format(endDate)
+filterDF = df[df['Date'].between(dayStart, dayEnd)]
+
+fig = px.line(filterDF, x='Date', y='Close')
 st.plotly_chart(fig)
 
 
