@@ -31,7 +31,7 @@ pick = st.sidebar.selectbox("Pick a ticker:",tickers) #dropdown box
 startDate = st.sidebar.date_input("Pick a start date")
 endDate = st.sidebar.date_input("Pick an end date")
 
-df = pd.read_csv("StockData/" + pick + ".csv", parse_dates=['Date'])
+df = pd.read_csv(pick + ".csv", parse_dates=['Date'])
 st.write(df)
     #st.write --> like print in python
 
